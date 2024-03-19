@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:blue_orbit_mobileapp/intro.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: intro(),
+      theme: ThemeData(scaffoldBackgroundColor: const Color(0xFFC3C6F6)),
+      home: const intro(),
     );
   }
 }
