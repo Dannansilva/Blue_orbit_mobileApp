@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
-class intro extends StatelessWidget {
-  const intro({super.key});
+class intro2 extends StatelessWidget {
+  const intro2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class intro extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 45.0, bottom: 20),
                     child: Image(
-                      image: AssetImage('assets/intro.png'),
+                      image: AssetImage('assets/intro2.png'),
                     ),
                   ),
 
@@ -35,7 +35,7 @@ class intro extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 35.0, right: 25),
                     child: Center(
                       child: Text(
-                        "Rising towards Colombo’s skyline the Nelum Kuluna is an iconic landmark that reflects the spirit of a nation.",
+                        "An extraordinary venue - Blue Orbit, Sri Lanka's only revolving restaurant where you can savour delectable cuisine as you take in a breathtaking 360° view of Colombo.",
                         textAlign: TextAlign.center, // Center align the text
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -49,14 +49,14 @@ class intro extends StatelessWidget {
               ),
               // skip button
               SizedBox(
-                height: 65,
+                height: 45,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/intro2');
+                      Navigator.pushNamed(context, '/intro');
                     },
                     style: ButtonStyle(
                       backgroundColor:
