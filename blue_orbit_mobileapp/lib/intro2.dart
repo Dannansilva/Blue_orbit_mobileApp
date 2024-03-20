@@ -32,11 +32,11 @@ class intro2 extends StatelessWidget {
 
                   //text
                   Padding(
-                    padding: const EdgeInsets.only(left: 35.0, right: 25),
+                    padding: const EdgeInsets.only(left: 35.0, right: 30),
                     child: Center(
                       child: Text(
                         "An extraordinary venue - Blue Orbit, Sri Lanka's only revolving restaurant where you can savour delectable cuisine as you take in a breathtaking 360° view of Colombo.",
-                        textAlign: TextAlign.center, // Center align the text
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 22,
@@ -49,7 +49,7 @@ class intro2 extends StatelessWidget {
               ),
               // skip button
               SizedBox(
-                height: 45,
+                height: 35,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,

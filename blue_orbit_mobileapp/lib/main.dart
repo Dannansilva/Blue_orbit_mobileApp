@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 
+import 'package:blue_orbit_mobileapp/guest.dart';
 import 'package:blue_orbit_mobileapp/intro.dart';
 import 'package:blue_orbit_mobileapp/intro2.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: intro(),
+      home: Guest(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),

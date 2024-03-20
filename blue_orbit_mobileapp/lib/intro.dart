@@ -32,7 +32,7 @@ class intro extends StatelessWidget {
 
                   //text
                   Padding(
-                    padding: const EdgeInsets.only(left: 35.0, right: 25),
+                    padding: const EdgeInsets.only(left: 35.0, right: 30),
                     child: Center(
                       child: Text(
                         "Rising towards Colombo’s skyline the Nelum Kuluna is an iconic landmark that reflects the spirit of a nation.",
@@ -49,7 +49,7 @@ class intro extends StatelessWidget {
               ),
               // skip button
               SizedBox(
-                height: 65,
+                height: 80,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
