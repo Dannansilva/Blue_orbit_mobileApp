@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Guest extends StatelessWidget {
   const Guest({super.key});
@@ -8,18 +11,19 @@ class Guest extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Container(
-          // width: 50,
-          // height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.white,
-          ),
-          child: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/intro');
-            },
-            icon: const Icon(Icons.arrow_back_outlined),
+        leading: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.white,
+            ),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/intro');
+              },
+              icon: const Icon(Icons.arrow_back_outlined),
+            ),
           ),
         ),
       ),
@@ -30,6 +34,107 @@ class Guest extends StatelessWidget {
             begin: Alignment.bottomRight,
             end: Alignment.topRight,
             colors: [Color(0xffABB0FF), Color(0xFFFFE9AF)],
+          ),
+        ),
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                Text(
+                  "Ayubowan,",
+                  style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.w900,
+                      // color: Color(0xffDAA420),
+                      decoration: TextDecoration.none,
+                      foreground: Paint()
+                        ..strokeWidth = 2
+                        ..color = Color(0xffDAA420)
+                        ..style = PaintingStyle.stroke),
+                ),
+                Text(
+                  'Welcome to Blue Orbit',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 50.0, right: 40),
+                  child: Text(
+                    "You are just a few clicks away from having THE best dining experience in Sri Lanka!",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 50.0, right: 40),
+                  child: Text(
+                    "Do you want to continue as a guest or sign up?",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  height: 35,
+                ),
+                //guest button
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigator.pushNamed(context, '/intro2');
+                  },
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Color(0xff140A4D)),
+                    minimumSize: MaterialStateProperty.all<Size>(Size(300, 70)),
+                  ),
+                  child: Text(
+                    "Guest",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "OR",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                //signup button
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigator.pushNamed(context, '/intro2');
+                  },
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Color(0xff140A4D)),
+                    minimumSize: MaterialStateProperty.all<Size>(Size(300, 70)),
+                  ),
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
