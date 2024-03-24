@@ -39,8 +39,8 @@ class intro2 extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                          height: 1.1,
+                          fontSize: 20,
+                          height: 1.3,
                         ),
                       ),
                     ),
@@ -56,7 +56,7 @@ class intro2 extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/intro');
+                      Navigator.pushNamed(context, '/guest');
                     },
                     style: ButtonStyle(
                       backgroundColor:
