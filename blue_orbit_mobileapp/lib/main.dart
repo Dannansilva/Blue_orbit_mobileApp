@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: special_offer(),
+      home: SpecialOffer(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),
