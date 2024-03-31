@@ -118,7 +118,7 @@ class _srilankanFDState extends State<srilankanFD> {
                   color: Color(0xffDAA420), // Set the background color here
                   child: BottomNavBar(
                     icons: [
-                      Icons.home,
+                      Icons.menu,
                       Icons.local_offer,
                       Icons.book_online,
                       Icons.info,

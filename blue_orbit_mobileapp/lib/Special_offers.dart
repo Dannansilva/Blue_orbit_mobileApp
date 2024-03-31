@@ -82,7 +82,7 @@ class _SpecialOfferState extends State<SpecialOffer> {
       //navbar
       bottomNavigationBar: BottomNavBar(
         icons: [
-          Icons.home,
+          Icons.menu,
           Icons.local_offer,
           Icons.book_online,
           Icons.info,
