@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -14,6 +14,7 @@ class _SpecialOfferState extends State<SpecialOffer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -28,18 +29,6 @@ class _SpecialOfferState extends State<SpecialOffer> {
               padding: const EdgeInsets.only(top: 12.0),
               child: Column(
                 children: [
-                  // Text(
-                  //   "Special Offers",
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.bold,
-                  //     fontSize: 30,
-                  //     decoration: TextDecoration.none,
-                  //     foreground: Paint()
-                  //       ..strokeWidth = 1.5
-                  //       ..color = Colors.black
-                  //       ..style = PaintingStyle.stroke,
-                  //   ),
-                  // ),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -86,6 +75,52 @@ class _SpecialOfferState extends State<SpecialOffer> {
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+      //navbar
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 25.0),
+        child: Container(
+          height: 56,
+          padding: EdgeInsets.all(5),
+          margin: EdgeInsets.symmetric(horizontal: 20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(35),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.8),
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: Offset(0, 1),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.home),
+                iconSize: 30,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.local_offer),
+                iconSize: 30,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.book_online),
+                iconSize: 30,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.info),
+                iconSize: 30,
+              )
+            ],
           ),
         ),
       ),
