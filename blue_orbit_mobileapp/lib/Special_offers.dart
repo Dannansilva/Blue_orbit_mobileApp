@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -14,117 +15,86 @@ class _SpecialOfferState extends State<SpecialOffer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomRight,
-            end: Alignment.topRight,
-            colors: [Color(0xffABB0FF), Color(0xFFFFE9AF)],
+        extendBody: true,
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              end: Alignment.topRight,
+              colors: [Color(0xffABB0FF), Color(0xFFFFE9AF)],
+            ),
           ),
-        ),
-        child: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 12.0),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Text(
-                            "Special Offers",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                              decoration: TextDecoration.none,
-                              foreground: Paint()
-                                ..strokeWidth = 1.5
-                                ..color = Colors.black
-                                ..style = PaintingStyle.stroke,
+          child: SafeArea(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 12.0),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Special Offers",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                                decoration: TextDecoration.none,
+                                foreground: Paint()
+                                  ..strokeWidth = 1.5
+                                  ..color = Colors.black
+                                  ..style = PaintingStyle.stroke,
+                              ),
                             ),
-                          ),
-                          SpecialOfferCard(
-                            image: 'assets/offer1.png',
-                            title: 'Extraordinary Christmas',
-                            description:
-                                'Restaurant Description Restaurant Description ',
-                          ),
-                          SpecialOfferCard(
-                            image: 'assets/offer2.png',
-                            title: '25% off Savings Offer!',
-                            description:
-                                'Restaurant Description Restaurant Description',
-                          ),
-                          // Add more SpecialOfferCard widgets for additional offers
-                          SpecialOfferCard(
-                            image: 'assets/offer1.png',
-                            title: 'Offer 1',
-                            description: 'Description for Offer 1',
-                          ),
-                          SpecialOfferCard(
-                            image: 'assets/offer2.png',
-                            title: 'Offer 2',
-                            description: 'Description for Offer 2',
-                          ),
-                        ],
+                            SpecialOfferCard(
+                              image: 'assets/offer1.png',
+                              title: 'Extraordinary Christmas',
+                              description:
+                                  'Restaurant Description Restaurant Description ',
+                            ),
+                            SpecialOfferCard(
+                              image: 'assets/offer2.png',
+                              title: '25% off Savings Offer!',
+                              description:
+                                  'Restaurant Description Restaurant Description',
+                            ),
+                            // Add more SpecialOfferCard widgets for additional offers
+                            SpecialOfferCard(
+                              image: 'assets/offer1.png',
+                              title: 'Offer 1',
+                              description: 'Description for Offer 1',
+                            ),
+                            SpecialOfferCard(
+                              image: 'assets/offer2.png',
+                              title: 'Offer 2',
+                              description: 'Description for Offer 2',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
         ),
-      ),
-      //navbar
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 25.0),
-        child: Container(
-          height: 56,
-          padding: EdgeInsets.all(5),
-          margin: EdgeInsets.symmetric(horizontal: 20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(35),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.8),
-                spreadRadius: 1,
-                blurRadius: 10,
-                offset: Offset(0, 1),
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.home),
-                iconSize: 30,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.local_offer),
-                iconSize: 30,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.book_online),
-                iconSize: 30,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.info),
-                iconSize: 30,
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+        //navbar
+        bottomNavigationBar: BottomNavBar(
+          icons: [
+            Icons.home,
+            Icons.local_offer,
+            Icons.book_online,
+            Icons.info,
+          ],
+          onPressed: [
+            () => Navigator.pushNamed(context, '/intro'),
+            () => Navigator.pushNamed(context, '/offer'),
+            () => Navigator.pushNamed(context, '/intro2'),
+            () => Navigator.pushNamed(context, '/guest'),
+          ],
+          currentIndex: 1,
+        ));
   }
 }
 

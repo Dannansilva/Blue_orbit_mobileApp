@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),
         '/guest': (context) => const Guest(),
+        '/offer': (context) => const SpecialOffer(),
       },
     );
   }
