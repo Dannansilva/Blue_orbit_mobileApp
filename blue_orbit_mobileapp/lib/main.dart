@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:blue_orbit_mobileapp/Login.dart';
 import 'package:blue_orbit_mobileapp/Special_offers.dart';
+import 'package:blue_orbit_mobileapp/SrilankanFD.dart';
 import 'package:blue_orbit_mobileapp/guest.dart';
 import 'package:blue_orbit_mobileapp/intro.dart';
 import 'package:blue_orbit_mobileapp/intro2.dart';
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: SpecialOffer(),
+      home: srilankanFD(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),
