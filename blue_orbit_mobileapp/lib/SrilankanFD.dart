@@ -99,12 +99,12 @@ class _srilankanFDState extends State<srilankanFD> {
                           ),
                           Center(
                             child: Padding(
-                              padding: const EdgeInsets.all(25.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Text(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id afnon pellentesque posuere nec nunc et enim nibh. Id afnon pellentesqueLorem ipsum dolor sit amet, consectetur adipiscing elit",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 15),
+                                    color: Colors.white, fontSize: 18),
                               ),
                             ),
                           ),
@@ -129,14 +129,17 @@ class _srilankanFDState extends State<srilankanFD> {
                       () => Navigator.pushNamed(context, '/intro2'),
                       () => Navigator.pushNamed(context, '/guest'),
                     ],
-                    currentIndex: -1,
+                    currentIndex: 0,
                   ),
                 ),
               ],
             ),
           ),
           // image
-          Center(child: Image.asset("assets/srilankan.png")),
+          Center(child: Padding(
+            padding: const EdgeInsets.only(bottom: 80.0),
+            child: Image.asset("assets/srilankan.png"),
+          )),
         ],
       ),
     );

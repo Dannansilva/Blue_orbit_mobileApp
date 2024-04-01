@@ -24,7 +24,7 @@ class intro2 extends StatelessWidget {
                 children: [
                   //image
                   Padding(
-                    padding: const EdgeInsets.only(top: 45.0, bottom: 20),
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 20),
                     child: Image(
                       image: AssetImage('assets/intro2.png'),
                     ),
@@ -39,7 +39,7 @@ class intro2 extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 18,
                           height: 1.3,
                         ),
                       ),
