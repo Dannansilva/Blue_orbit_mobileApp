@@ -1,8 +1,13 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
 import 'dart:ffi';
 import 'dart:ui';
 
+import 'package:blue_orbit_mobileapp/ArabianFD.dart';
+import 'package:blue_orbit_mobileapp/ChineseFD.dart';
+import 'package:blue_orbit_mobileapp/IndianFD.dart';
+import 'package:blue_orbit_mobileapp/ItalianFD.dart';
+import 'package:blue_orbit_mobileapp/JapaneseFD.dart';
 import 'package:blue_orbit_mobileapp/Login.dart';
 import 'package:blue_orbit_mobileapp/Special_offers.dart';
 import 'package:blue_orbit_mobileapp/SrilankanFD.dart';
@@ -26,12 +31,18 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: srilankanFD(),
+      home: indianFD(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),
         '/guest': (context) => const Guest(),
         '/offer': (context) => const SpecialOffer(),
+        '/srilankan': (context) => const srilankanFD(),
+        '/italian': (context) => const italianFD(),
+        '/japanese': (context) => const japaneseFD(),
+        '/arabian': (context) => const arabianFD(),
+        '/chinese': (context) => const chineseFD(),
+        '/indian': (context) => const indianFD(),
       },
     );
   }
