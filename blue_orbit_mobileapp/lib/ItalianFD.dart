@@ -1,16 +1,16 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
+// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
-class srilankanFD extends StatefulWidget {
-  const srilankanFD({Key? key}) : super(key: key);
+class italianFD extends StatefulWidget {
+  const italianFD({super.key});
 
   @override
-  State<srilankanFD> createState() => _srilankanFDState();
+  State<italianFD> createState() => _italianFDState();
 }
 
-class _srilankanFDState extends State<srilankanFD> {
+class _italianFDState extends State<italianFD> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -28,7 +28,7 @@ class _srilankanFDState extends State<srilankanFD> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/intro');
+                Navigator.pushNamed(context, '/srilankan');
               },
               icon: const Icon(Icons.arrow_back_outlined),
             ),
@@ -45,7 +45,7 @@ class _srilankanFDState extends State<srilankanFD> {
               ),
               child: IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/italian');
+                  Navigator.pushNamed(context, '/japanese');
                 },
                 icon: const Icon(Icons.arrow_forward_outlined),
               ),
@@ -88,7 +88,7 @@ class _srilankanFDState extends State<srilankanFD> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Sri Lankan Cuisine",
+                            "Italian Cuisine",
                             style: TextStyle(
                                 fontSize: 35,
                                 decoration: TextDecoration.none,
@@ -137,8 +137,8 @@ class _srilankanFDState extends State<srilankanFD> {
           ),
           // image
           Center(child: Padding(
-            padding: const EdgeInsets.only(bottom: 80.0),
-            child: Image.asset("assets/srilankan.png"),
+            padding: const EdgeInsets.only(bottom: 120.0),
+            child: Image.asset("assets/italian.png"),
           )),
         ],
       ),
