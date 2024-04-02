@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class reservetable extends StatefulWidget {
   const reservetable({super.key});
@@ -10,6 +11,23 @@ class reservetable extends StatefulWidget {
 }
 
 class _reservetableState extends State<reservetable> {
+  // date time variable
+  DateTime selectedDate = DateTime.now();
+  //date picker
+  void _showDatePicker() {
+    showDatePicker(
+            context: context,
+            firstDate: DateTime(2020),
+            lastDate: DateTime(2050))
+        .then((value) => {
+              setState(
+                () {
+                  selectedDate = value!;
+                },
+              )
+            });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,8 +70,11 @@ class _reservetableState extends State<reservetable> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
-                          Icon(Icons.calendar_today),
-                          Text("Select Date"),
+                          IconButton(
+                              onPressed: _showDatePicker,
+                              icon: Icon(Icons.date_range)),
+                          Text(
+                              '${DateFormat('yyyy-MM-dd').format(selectedDate)}'),
                         ],
                       ),
                     ),
