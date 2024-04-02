@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -42,7 +44,7 @@ class BottomNavBar extends StatelessWidget {
                 icons[index],
                 size: 30,
                 color: currentIndex == index
-                    ? Colors.deepPurpleAccent
+                    ? Color(0xFFDAA420)
                     : Colors.black,
               ),
             ),

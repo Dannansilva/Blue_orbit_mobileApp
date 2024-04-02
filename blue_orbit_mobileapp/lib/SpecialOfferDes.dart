@@ -1,16 +1,16 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
-class srilankanFD extends StatefulWidget {
-  const srilankanFD({Key? key}) : super(key: key);
+class specialofferdesc extends StatefulWidget {
+  const specialofferdesc({super.key});
 
   @override
-  State<srilankanFD> createState() => _srilankanFDState();
+  State<specialofferdesc> createState() => _specialofferdescState();
 }
 
-class _srilankanFDState extends State<srilankanFD> {
+class _specialofferdescState extends State<specialofferdesc> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -28,43 +28,27 @@ class _srilankanFDState extends State<srilankanFD> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/intro');
+                Navigator.pushNamed(context, '/arabian');
               },
               icon: const Icon(Icons.arrow_back_outlined),
             ),
           ),
         ),
-        //second icon button
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.white,
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/italian');
-                },
-                icon: const Icon(Icons.arrow_forward_outlined),
-              ),
-            ),
-          ),
-        ],
       ),
-      extendBodyBehindAppBar: true,
       body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomRight,
-                end: Alignment.topRight,
-                colors: [Color(0xffABB0FF), Color(0xFFFFE9AF)],
-              ),
-            ),
-          ),
+  children: [
+    // Background Image positioned above the AppBar
+    Positioned(
+      top: kToolbarHeight * -0.5, // Adjust this value as needed
+      left: 0,
+      right: 0,
+      height: kToolbarHeight * 2, // Adjust this value as needed
+      child: Image.asset(
+        'assets/xmasdinner.jpg', 
+        fit: BoxFit.fitWidth,
+      ),
+    ),
+          
           //yellow box and bottom navigation bar
           Positioned(
             left: 0,
@@ -88,7 +72,7 @@ class _srilankanFDState extends State<srilankanFD> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Sri Lankan Cuisine",
+                            "Chinese Cuisine",
                             style: TextStyle(
                                 fontSize: 35,
                                 decoration: TextDecoration.none,
@@ -136,10 +120,6 @@ class _srilankanFDState extends State<srilankanFD> {
             ),
           ),
           // image
-          Center(child: Padding(
-            padding: const EdgeInsets.only(bottom: 80.0),
-            child: Image.asset("assets/srilankan.png"),
-          )),
         ],
       ),
     );
