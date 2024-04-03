@@ -126,7 +126,7 @@ class _japaneseFDState extends State<japaneseFD> {
                     onPressed: [
                       () => Navigator.pushNamed(context, '/intro'),
                       () => Navigator.pushNamed(context, '/offer'),
-                      () => Navigator.pushNamed(context, '/intro2'),
+                      () => Navigator.pushNamed(context, '/reserv'),
                       () => Navigator.pushNamed(context, '/guest'),
                     ],
                     currentIndex: 0,
@@ -136,7 +136,8 @@ class _japaneseFDState extends State<japaneseFD> {
             ),
           ),
           // image
-          Center(child: Padding(
+          Center(
+              child: Padding(
             padding: const EdgeInsets.only(bottom: 120.0),
             child: Image.asset("assets/japanese.png"),
           )),

@@ -90,7 +90,7 @@ class _SpecialOfferState extends State<SpecialOffer> {
         onPressed: [
           () => Navigator.pushNamed(context, '/intro'),
           () => Navigator.pushNamed(context, '/offer'),
-          () => Navigator.pushNamed(context, '/intro2'),
+          () => Navigator.pushNamed(context, '/reserv'),
           () => Navigator.pushNamed(context, '/guest'),
         ],
         currentIndex: 1,
