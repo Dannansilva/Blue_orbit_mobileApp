@@ -126,7 +126,7 @@ class _srilankanFDState extends State<srilankanFD> {
                     onPressed: [
                       () => Navigator.pushNamed(context, '/intro'),
                       () => Navigator.pushNamed(context, '/offer'),
-                      () => Navigator.pushNamed(context, '/intro2'),
+                      () => Navigator.pushNamed(context, '/reserv'),
                       () => Navigator.pushNamed(context, '/guest'),
                     ],
                     currentIndex: 0,
@@ -136,7 +136,8 @@ class _srilankanFDState extends State<srilankanFD> {
             ),
           ),
           // image
-          Center(child: Padding(
+          Center(
+              child: Padding(
             padding: const EdgeInsets.only(bottom: 80.0),
             child: Image.asset("assets/srilankan.png"),
           )),

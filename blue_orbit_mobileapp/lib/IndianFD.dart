@@ -15,7 +15,7 @@ class _indianFDState extends State<indianFD> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final yellowBoxHeight = screenHeight / 2;
-    
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -127,7 +127,7 @@ class _indianFDState extends State<indianFD> {
                     onPressed: [
                       () => Navigator.pushNamed(context, '/intro'),
                       () => Navigator.pushNamed(context, '/offer'),
-                      () => Navigator.pushNamed(context, '/intro2'),
+                      () => Navigator.pushNamed(context, '/reserv'),
                       () => Navigator.pushNamed(context, '/guest'),
                     ],
                     currentIndex: 0,
@@ -137,7 +137,8 @@ class _indianFDState extends State<indianFD> {
             ),
           ),
           // image
-          Center(child: Padding(
+          Center(
+              child: Padding(
             padding: const EdgeInsets.only(bottom: 120.0),
             child: Image.asset("assets/indian.png"),
           )),
