@@ -10,6 +10,7 @@ import 'package:blue_orbit_mobileapp/ItalianFD.dart';
 import 'package:blue_orbit_mobileapp/JapaneseFD.dart';
 import 'package:blue_orbit_mobileapp/Login.dart';
 import 'package:blue_orbit_mobileapp/Reserve_table.dart';
+import 'package:blue_orbit_mobileapp/SpecialOfferDes.dart';
 import 'package:blue_orbit_mobileapp/Special_offers.dart';
 import 'package:blue_orbit_mobileapp/SrilankanFD.dart';
 import 'package:blue_orbit_mobileapp/guest.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: reservetable(),
+      home: specialofferdesc(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),

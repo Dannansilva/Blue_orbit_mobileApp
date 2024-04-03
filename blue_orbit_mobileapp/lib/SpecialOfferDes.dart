@@ -59,7 +59,11 @@ class _specialofferdescState extends State<specialofferdesc> {
                 Container(
                   height: yellowBoxHeight,
                   decoration: BoxDecoration(
-                    color: Color(0xffDAA420),
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomLeft, // Adjusted begin to bottomLeft
+                      end: Alignment.topRight,
+                      colors: [Color(0xffABB0FF), Color(0xFFFFE9AF)],
+                    ),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(55),
                       topRight: Radius.circular(55),
@@ -67,19 +71,16 @@ class _specialofferdescState extends State<specialofferdesc> {
                   ),
                   child: SafeArea(
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 35.0),
+                      padding: const EdgeInsets.only(top: 5.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Chinese Cuisine",
+                            'Extraordinary Christmas!',
                             style: TextStyle(
-                                fontSize: 35,
-                                decoration: TextDecoration.none,
-                                foreground: Paint()
-                                  ..strokeWidth = 2
-                                  ..color = Colors.white
-                                  ..style = PaintingStyle.stroke),
+                              fontSize: 25,
+                              fontWeight: FontWeight.w900,
+                            ),
                           ),
                           Center(
                             child: Padding(
@@ -98,24 +99,7 @@ class _specialofferdescState extends State<specialofferdesc> {
                   ),
                 ),
                 // Bottom Navigation Bar
-                Container(
-                  color: Color(0xffDAA420), // Set the background color here
-                  child: BottomNavBar(
-                    icons: [
-                      Icons.menu,
-                      Icons.local_offer,
-                      Icons.book_online,
-                      Icons.info,
-                    ],
-                    onPressed: [
-                      () => Navigator.pushNamed(context, '/intro'),
-                      () => Navigator.pushNamed(context, '/offer'),
-                      () => Navigator.pushNamed(context, '/intro2'),
-                      () => Navigator.pushNamed(context, '/guest'),
-                    ],
-                    currentIndex: 0,
-                  ),
-                ),
+                
               ],
             ),
           ),
