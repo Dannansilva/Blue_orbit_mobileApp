@@ -43,9 +43,7 @@ class BottomNavBar extends StatelessWidget {
               icon: Icon(
                 icons[index],
                 size: 30,
-                color: currentIndex == index
-                    ? Color(0xFFDAA420)
-                    : Colors.black,
+                color: currentIndex == index ? Color(0xFFDAA420) : Colors.black,
               ),
             ),
           ),
