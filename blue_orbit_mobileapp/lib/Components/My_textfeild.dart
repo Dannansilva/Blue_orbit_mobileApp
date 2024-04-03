@@ -37,7 +37,7 @@ class _MyTextFieldState extends State<MyTextField> {
             borderSide: BorderSide(color: Colors.black),
             borderRadius: BorderRadius.circular(30.0),
           ),
-          fillColor: Colors.white,
+          fillColor: Colors.transparent,
           filled: true,
           hintText: widget.hintText,
           hintStyle: TextStyle(color: Color(0xFF595A5D)),
