@@ -211,7 +211,9 @@ class _reservetableState extends State<reservetable> {
                           padding:
                               const EdgeInsets.only(right: 25.0, bottom: 25),
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/noguest');
+                              },
                               child: Text(
                                 "Next",
                                 style: TextStyle(color: Color(0xff140A4D)),

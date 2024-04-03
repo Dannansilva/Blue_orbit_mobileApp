@@ -15,6 +15,7 @@ import 'package:blue_orbit_mobileapp/SrilankanFD.dart';
 import 'package:blue_orbit_mobileapp/guest.dart';
 import 'package:blue_orbit_mobileapp/intro.dart';
 import 'package:blue_orbit_mobileapp/intro2.dart';
+import 'package:blue_orbit_mobileapp/noofguest.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: reservetable(),
+      home: noguest(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),
@@ -44,6 +45,8 @@ class MyApp extends StatelessWidget {
         '/arabian': (context) => const arabianFD(),
         '/chinese': (context) => const chineseFD(),
         '/indian': (context) => const indianFD(),
+        '/noguest': (context) => const noguest(),
+        '/reserv': (context) => const reservetable(),
       },
     );
   }
