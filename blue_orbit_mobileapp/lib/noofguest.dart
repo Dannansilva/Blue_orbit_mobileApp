@@ -131,8 +131,11 @@ class _noguestState extends State<noguest> {
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(right: 25.0, bottom: 25),
-                      child:
-                          ElevatedButton(onPressed: () {}, child: Text("Next")),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/tabelno');
+                          },
+                          child: Text("Next")),
                     )
                   ],
                 ),

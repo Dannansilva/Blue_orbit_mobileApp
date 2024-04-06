@@ -17,6 +17,7 @@ import 'package:blue_orbit_mobileapp/guest.dart';
 import 'package:blue_orbit_mobileapp/intro.dart';
 import 'package:blue_orbit_mobileapp/intro2.dart';
 import 'package:blue_orbit_mobileapp/noofguest.dart';
+import 'package:blue_orbit_mobileapp/reservationsummary.dart';
 import 'package:blue_orbit_mobileapp/tableno.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: tableNO(),
+      home: reservetable(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),
@@ -49,6 +50,8 @@ class MyApp extends StatelessWidget {
         '/indian': (context) => const indianFD(),
         '/noguest': (context) => const noguest(),
         '/reserv': (context) => const reservetable(),
+        '/tabelno': (context) => const tableNO(),
+        '/reservsum': (context) => const reservsummary(),
       },
     );
   }
