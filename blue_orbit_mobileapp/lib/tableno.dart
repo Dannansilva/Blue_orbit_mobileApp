@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_print, camel_case_types, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_print, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ class tableNO extends StatefulWidget {
 }
 
 class _tableNOState extends State<tableNO> {
-  String? selectedBox;
+  List<String> selectedBoxes = []; // Track selected boxes
 
   @override
   Widget build(BuildContext context) {
@@ -134,6 +134,7 @@ class _tableNOState extends State<tableNO> {
                     ],
                   ),
                 ),
+                //navbar
                 Container(
                   child: BottomNavBar(
                     icons: [
@@ -160,12 +161,18 @@ class _tableNOState extends State<tableNO> {
   }
 
   Widget buildBox(String text) {
+    final isSelected = selectedBoxes.contains(text);
+
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedBox = text;
+          if (isSelected) {
+            selectedBoxes.remove(text); // Deselect if already selected
+          } else {
+            selectedBoxes.add(text); // Select if not selected
+          }
         });
-        print('Selected Box: $selectedBox');
+        print('Selected Boxes: $selectedBoxes');
       },
       child: Container(
         width: 60,
@@ -173,7 +180,7 @@ class _tableNOState extends State<tableNO> {
         margin: EdgeInsets.all(5),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: selectedBox == text ? Color(0xffDAA420) : Colors.grey,
+          color: isSelected ? Color(0xffDAA420) : Colors.grey,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(text,
