@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: reservetable(),
+      home: tableNO(),
       routes: {
         '/intro': (context) => const intro(),
         '/intro2': (context) => const intro2(),
