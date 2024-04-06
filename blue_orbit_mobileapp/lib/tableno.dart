@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, avoid_print, camel_case_types, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, avoid_print, camel_case_types, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 
+import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class tableNO extends StatefulWidget {
@@ -97,12 +98,57 @@ class _tableNOState extends State<tableNO> {
                     onPressed: () {},
                     child: Text("To book more seats click here.")),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: Column(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "*W - Window Seats (does not rotate)",
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "*R - Rotating Seats",
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 25.0, right: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                          "*W - Window Seats (does not rotate)*R - Rotating Seats")
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/reservsum');
+                          },
+                          child: Text(
+                            "Reserve",
+                            style: TextStyle(
+                                color: Color(0xff140A4D),
+                                fontWeight: FontWeight.bold),
+                          ))
                     ],
+                  ),
+                ),
+                Container(
+                  child: BottomNavBar(
+                    icons: [
+                      Icons.menu,
+                      Icons.local_offer,
+                      Icons.book_online,
+                      Icons.info,
+                    ],
+                    onPressed: [
+                      () => Navigator.pushNamed(context, '/intro'),
+                      () => Navigator.pushNamed(context, '/offer'),
+                      () => Navigator.pushNamed(context, '/reserv'),
+                      () => Navigator.pushNamed(context, '/guest'),
+                    ],
+                    currentIndex: 2,
                   ),
                 ),
               ],

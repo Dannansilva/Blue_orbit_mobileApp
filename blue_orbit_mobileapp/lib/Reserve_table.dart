@@ -224,7 +224,6 @@ class _reservetableState extends State<reservetable> {
 
                     //navbar
                     Container(
-                      // Set the background color here
                       child: BottomNavBar(
                         icons: [
                           Icons.menu,
