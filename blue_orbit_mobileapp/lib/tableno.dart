@@ -4,27 +4,59 @@ import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class tableNO extends StatefulWidget {
-  const tableNO({Key? key}) : super(key: key);
+  final int selectedCount;
+  const tableNO({Key? key, required this.selectedCount}) : super(key: key);
 
   @override
   State<tableNO> createState() => _tableNOState();
 }
 
 class _tableNOState extends State<tableNO> {
-  List<String> selectedBoxes = []; // Track selected boxes
+  late List<String> tableNumbers; // Track available tables
+  late List<String> selectedTables = []; // Track selected tables
+
+  @override
+  void initState() {
+    super.initState();
+    tableNumbers = generateTableNumbers();
+  }
+
+  List<String> generateTableNumbers() {
+    switch (widget.selectedCount) {
+      case 2:
+        tableNumbers = ['W1', 'W2', 'W3', 'R3', 'R6', 'R10', 'R11', 'R15'];
+        break;
+      case 4:
+        tableNumbers = ['R2', 'R4', 'R8', 'R14', 'R15', 'R18', 'R20'];
+        break;
+      case 6:
+        tableNumbers = ['R3', 'R22', 'R25', 'R27', 'R29', 'R30', 'R33'];
+        break;
+      case 8:
+        tableNumbers = ['R10', 'R11', 'R12', 'R13', 'R16', 'R17', 'R19'];
+        break;
+      case 10:
+        tableNumbers = ['R21', 'R23', 'R24', 'R26', 'R28', 'R31', 'R32'];
+        break;
+      default:
+        // Handle other cases if needed
+        break;
+    }
+    return tableNumbers;
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<String> customTexts = [
-      'w1',
-      'w2',
-      'w3',
-      'R3',
-      'R6',
-      'R10',
-      'R11',
-      'R15'
-    ]; // Custom texts for each box
+    // List<String> customTexts = [
+    //   'w1',
+    //   'w2',
+    //   'w3',
+    //   'R3',
+    //   'R6',
+    //   'R10',
+    //   'R11',
+    //   'R15'
+    // ]; // Custom texts for each box
 
     return Scaffold(
       appBar: AppBar(
@@ -38,7 +70,7 @@ class _tableNOState extends State<tableNO> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, "/reserv");
+                Navigator.pushNamed(context, "/noguest");
               },
               icon: const Icon(Icons.arrow_back_outlined),
             ),
@@ -79,19 +111,21 @@ class _tableNOState extends State<tableNO> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        for (int i = 0; i < 3; i++) buildBox(customTexts[i]),
+                        for (int i = 0; i < tableNumbers.length && i < 3; i++)
+                          buildBox(tableNumbers[i]),
                       ],
                     ),
                     SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        for (int i = 3; i < customTexts.length; i++)
-                          buildBox(customTexts[i]),
+                        for (int i = 3; i < tableNumbers.length; i++)
+                          buildBox(tableNumbers[i]),
                       ],
                     ),
                   ],
                 ),
+
                 Spacer(),
                 //book more tabels
                 TextButton(
@@ -161,18 +195,26 @@ class _tableNOState extends State<tableNO> {
   }
 
   Widget buildBox(String text) {
-    final isSelected = selectedBoxes.contains(text);
+    final isSelected = selectedTables.contains(text);
+    final isAvailable = !isSelected;
+
+    Color color =
+        isAvailable ? Colors.grey : Colors.red; // Change available table color
+    if (isSelected) {
+      color = Color(0xffDAA420); // Change selected table color
+    }
 
     return GestureDetector(
       onTap: () {
         setState(() {
-          if (isSelected) {
-            selectedBoxes.remove(text); // Deselect if already selected
+          if (isAvailable && !isSelected) {
+            selectedTables.add(
+                text); // Select table if available and not already selected
           } else {
-            selectedBoxes.add(text); // Select if not selected
+            selectedTables.remove(text); // Deselect if already selected
           }
         });
-        print('Selected Boxes: $selectedBoxes');
+        print('Selected Table Numbers: $selectedTables');
       },
       child: Container(
         width: 60,
@@ -180,7 +222,7 @@ class _tableNOState extends State<tableNO> {
         margin: EdgeInsets.all(5),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: isSelected ? Color(0xffDAA420) : Colors.grey,
+          color: color, // Use updated color variable
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(text,

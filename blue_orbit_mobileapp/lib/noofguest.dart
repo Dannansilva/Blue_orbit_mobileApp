@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
+import 'package:blue_orbit_mobileapp/tableno.dart';
 import 'package:flutter/material.dart';
 
 class noguest extends StatefulWidget {
@@ -133,9 +134,18 @@ class _noguestState extends State<noguest> {
                       padding: const EdgeInsets.only(right: 25.0, bottom: 25),
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/tabelno');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    tableNO(selectedCount: selectedGuest),
+                              ),
+                            );
                           },
-                          child: Text("Next")),
+                          child: Text("Next"),
+                        )
+
+
                     )
                   ],
                 ),
