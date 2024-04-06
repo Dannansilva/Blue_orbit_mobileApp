@@ -26,7 +26,7 @@ class _reservsummaryState extends State<reservsummary> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, "/tabelno");
+                Navigator.pushNamed(context, "/noguest");
               },
               icon: const Icon(Icons.arrow_back_outlined),
             ),
