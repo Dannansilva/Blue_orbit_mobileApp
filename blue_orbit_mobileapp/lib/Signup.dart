@@ -28,9 +28,9 @@ class _signupState extends State<signup> {
                 email: emai.text.trim(), password: pass.text.trim());
         String userId = userCredential.user!.uid;
         await FirebaseFirestore.instance.collection("users").doc(userId).set({
-          'name': name.text.trim(),
-          'email': emai.text.trim(),
-          'contact': contact.text.trim(),
+          'name': name.text,
+          'email': emai.text,
+          'contact': contact.text,
         });
         if (mounted) {
           Navigator.pushNamed(context, '/login');
