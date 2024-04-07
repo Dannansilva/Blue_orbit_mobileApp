@@ -10,7 +10,6 @@ class cuisinesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -23,101 +22,123 @@ class cuisinesPage extends StatelessWidget {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildCuisineBox(
-                        context,
-                        image: 'assets/SriLankanCP.png',
-                        cuisineName: 'Sri Lankan',
-                        onPressed: () {
-                          // Navigate to Sri Lankan cuisine details
-                          Navigator.pushNamed(context, '/SriLankanFD');
-                        },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "MENU",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w900,
+                        decoration: TextDecoration.none,
+                        foreground: Paint()
+                          ..strokeWidth = 2
+                          ..color = Colors.black
+                          ..style = PaintingStyle.stroke,
                       ),
-                      _buildCuisineBox(
-                        context,
-                        image: 'assets/ItalianCP.png',
-                        cuisineName: 'Italian',
-                        onPressed: () {
-                          // Navigate to Italian cuisine details
-                          Navigator.pushNamed(context, '/ItalianFD');
-                        },
+                    ),
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildCuisineBox(
+                          context,
+                          image: 'assets/SriLankanCP.png',
+                          cuisineName: 'Sri Lankan',
+                          onPressed: () {
+                            // Navigate to Sri Lankan cuisine details
+                            Navigator.pushNamed(context, '/srilankan');
+                          },
+                        ),
+                        _buildCuisineBox(
+                          context,
+                          image: 'assets/ItalianCP.png',
+                          cuisineName: 'Italian',
+                          onPressed: () {
+                            // Navigate to Italian cuisine details
+                            Navigator.pushNamed(context, '/italian');
+                          },
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildCuisineBox(
+                          context,
+                          image: 'assets/JapaneseCP.png',
+                          cuisineName: 'Japanese',
+                          onPressed: () {
+                            // Navigate to Japanese cuisine details
+                            Navigator.pushNamed(context, '/japanese');
+                          },
+                        ),
+                        _buildCuisineBox(
+                          context,
+                          image: 'assets/ArabianCP.png',
+                          cuisineName: 'Arabian',
+                          onPressed: () {
+                            // Navigate to Arabian cuisine details
+                            Navigator.pushNamed(context, '/arabian');
+                          },
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildCuisineBox(
+                          context,
+                          image: 'assets/ChineseCP.png',
+                          cuisineName: 'Chinese',
+                          onPressed: () {
+                            // Navigate to Chinese cuisine details
+                            Navigator.pushNamed(context, '/chinese');
+                          },
+                        ),
+                        _buildCuisineBox(
+                          context,
+                          image: 'assets/IndianCP.png',
+                          cuisineName: 'Indian',
+                          onPressed: () {
+                            // Navigate to Indian cuisine details
+                            Navigator.pushNamed(context, '/indian');
+                          },
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Spacer(),
+                    Container(
+                      child: // Navbar
+                          BottomNavBar(
+                        icons: [
+                          Icons.menu,
+                          Icons.local_offer,
+                          Icons.book_online,
+                          Icons.info,
+                        ],
+                        onPressed: [
+                          () => Navigator.pushNamed(context, '/intro'),
+                          () => Navigator.pushNamed(context, '/offer'),
+                          () => Navigator.pushNamed(context, '/reserv'),
+                          () => Navigator.pushNamed(context, '/guest'),
+                        ],
+                        currentIndex: 0,
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildCuisineBox(
-                        context,
-                        image: 'assets/JapaneseCP.png',
-                        cuisineName: 'Japanese',
-                        onPressed: () {
-                          // Navigate to Japanese cuisine details
-                          Navigator.pushNamed(context, '/JapaneseFD');
-                        },
-                      ),
-                      _buildCuisineBox(
-                        context,
-                        image: 'assets/ArabianCP.png',
-                        cuisineName: 'Arabian',
-                        onPressed: () {
-                          // Navigate to Arabian cuisine details
-                          Navigator.pushNamed(context, '/ArabianFD');
-                        },
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildCuisineBox(
-                        context,
-                        image: 'assets/ChineseCP.png',
-                        cuisineName: 'Chinese',
-                        onPressed: () {
-                          // Navigate to Chinese cuisine details
-                          Navigator.pushNamed(context, '/ChineseFD');
-                        },
-                      ),
-                      _buildCuisineBox(
-                        context,
-                        image: 'assets/IndianCP.png',
-                        cuisineName: 'Indian',
-                        onPressed: () {
-                          // Navigate to Indian cuisine details
-                          Navigator.pushNamed(context, '/IndianFD');
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
         ),
-      ),
-      // Navbar
-      bottomNavigationBar: BottomNavBar(
-        icons: [
-          Icons.menu,
-          Icons.local_offer,
-          Icons.book_online,
-          Icons.info,
-        ],
-        onPressed: [
-          () => Navigator.pushNamed(context, '/intro'),
-          () => Navigator.pushNamed(context, '/offer'),
-          () => Navigator.pushNamed(context, '/reserv'),
-          () => Navigator.pushNamed(context, '/guest'),
-        ],
-        currentIndex: 0,
       ),
     );
   }
