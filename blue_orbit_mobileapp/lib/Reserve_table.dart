@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, sort_child_properties_last, avoid_unnecessary_containers, annotate_overrides
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
+import 'package:blue_orbit_mobileapp/noofguest.dart';
+import 'package:blue_orbit_mobileapp/reservationsummary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -211,13 +213,16 @@ class _reservetableState extends State<reservetable> {
                           padding:
                               const EdgeInsets.only(right: 25.0, bottom: 25),
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/noguest');
-                              },
-                              child: Text(
-                                "Next",
-                                style: TextStyle(color: Color(0xff140A4D)),
-                              )),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => noguest(),
+                                ),
+                              );
+                            },
+                            child: Text("Confirm"),
+                          ),
                         ),
                       ],
                     ),

@@ -30,7 +30,10 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: cuisinesPage(),
+ functions
+      home: tableNO(selectedCount: 2),
+
+    
       routes: generateRoutes(),
     );
   }
@@ -55,7 +58,10 @@ class MyApp extends StatelessWidget {
       // '/tabelno': (context) => tableNO(
       //       selectedCount: selectedCount,
       //     ),
-      '/reservsum': (context) => const reservsummary(),
+      '/reservsum': (context) => const reservsummary(
+            selectedDate: '',
+            selectedTime: '',
+          ),
     };
   }
 }

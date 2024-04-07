@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class reservsummary extends StatefulWidget {
-  const reservsummary({Key? key});
+  final String selectedDate;
+  final String selectedTime;
+  const reservsummary(
+      {Key? key, required this.selectedDate, required this.selectedTime});
 
   @override
   State<reservsummary> createState() => _reservsummaryState();
@@ -14,6 +17,9 @@ class reservsummary extends StatefulWidget {
 class _reservsummaryState extends State<reservsummary> {
   @override
   Widget build(BuildContext context) {
+    final List<String>? selectedTables =
+        ModalRoute.of(context)?.settings.arguments as List<String>?;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -99,8 +105,9 @@ class _reservsummaryState extends State<reservsummary> {
                                               ),
                                             ),
                                             Spacer(),
+                                            //selected date
                                             Text(
-                                              "24.march 2024 ",
+                                              "${widget.selectedDate} ",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
@@ -133,7 +140,7 @@ class _reservsummaryState extends State<reservsummary> {
                                             ),
                                             Spacer(),
                                             Text(
-                                              "lunch ",
+                                              "${widget.selectedTime} ",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
@@ -146,6 +153,40 @@ class _reservsummaryState extends State<reservsummary> {
                                     ),
                                   ),
                                   //guest row
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(top: 20.0),
+                                  //   child: Center(
+                                  //     child: Padding(
+                                  //       padding: const EdgeInsets.only(
+                                  //           left: 40.0, right: 30),
+                                  //       child: Row(
+                                  //         mainAxisAlignment:
+                                  //             MainAxisAlignment.center,
+                                  //         children: [
+                                  //           Text(
+                                  //             "Guests : ",
+                                  //             style: TextStyle(
+                                  //               fontSize: 16,
+                                  //               fontWeight: FontWeight.bold,
+                                  //               color: Colors.white,
+                                  //             ),
+                                  //           ),
+                                  //           Spacer(),
+                                  //           Text(
+                                  //             "10 pax ",
+                                  //             style: TextStyle(
+                                  //               fontSize: 16,
+                                  //               fontWeight: FontWeight.bold,
+                                  //               color: Colors.white,
+                                  //             ),
+                                  //           )
+                                  //         ],
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                  //table number
+
                                   Padding(
                                     padding: const EdgeInsets.only(top: 20.0),
                                     child: Center(
@@ -157,7 +198,7 @@ class _reservsummaryState extends State<reservsummary> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "Guests : ",
+                                              "Table number : ",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
@@ -166,7 +207,9 @@ class _reservsummaryState extends State<reservsummary> {
                                             ),
                                             Spacer(),
                                             Text(
-                                              "10 pax ",
+                                              selectedTables != null
+                                                  ? selectedTables.join(", ")
+                                                  : "No tables selected",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
