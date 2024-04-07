@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, sort_child_properties_last, avoid_unnecessary_containers, annotate_overrides, unused_element, avoid_print, use_build_context_synchronously
+
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:blue_orbit_mobileapp/noofguest.dart';
