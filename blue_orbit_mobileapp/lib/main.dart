@@ -2,6 +2,7 @@
 
 import 'package:blue_orbit_mobileapp/ArabianFD.dart';
 import 'package:blue_orbit_mobileapp/ChineseFD.dart';
+import 'package:blue_orbit_mobileapp/CuisinesPage.dart';
 import 'package:blue_orbit_mobileapp/IndianFD.dart';
 import 'package:blue_orbit_mobileapp/ItalianFD.dart';
 import 'package:blue_orbit_mobileapp/JapaneseFD.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: noguest(),
+      home: cuisinesPage(),
       routes: generateRoutes(),
     );
   }
