@@ -8,7 +8,7 @@ import 'package:blue_orbit_mobileapp/ItalianFD.dart';
 import 'package:blue_orbit_mobileapp/JapaneseFD.dart';
 
 import 'package:blue_orbit_mobileapp/Login.dart';
-=======
+
 import 'package:blue_orbit_mobileapp/ProfilePage.dart';
 
 import 'package:blue_orbit_mobileapp/Reserve_table.dart';
@@ -41,19 +41,15 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-
       home: StreamBuilder<User?>(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData && snapshot.data != null) {
-              return Login();
+              return cuisinesPage();
             } else {
               return Login();
             }
           }),
-
-      home: profilePage(),
-
       routes: generateRoutes(),
     );
   }
@@ -80,7 +76,10 @@ class MyApp extends StatelessWidget {
       // '/tabelno': (context) => tableNO(
       //       selectedCount: selectedCount,
       //     ),
-      '/reservsum': (context) => const reservsummary( selectedDate: '',selectedTime: '',),
+      '/reservsum': (context) => const reservsummary(
+            selectedDate: '',
+            selectedTime: '',
+          ),
     };
   }
 }
