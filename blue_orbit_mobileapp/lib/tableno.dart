@@ -157,7 +157,8 @@ class _tableNOState extends State<tableNO> {
                     children: [
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/reservsum');
+                            Navigator.pushNamed(context, '/reservsum',
+                                arguments: selectedTables);
                           },
                           child: Text(
                             "Reserve",
