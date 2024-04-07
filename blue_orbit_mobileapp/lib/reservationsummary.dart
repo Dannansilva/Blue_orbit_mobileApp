@@ -1,8 +1,10 @@
-// ignore_for_file: camel_case_types, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: camel_case_types, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, unnecessary_string_interpolations
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class reservsummary extends StatefulWidget {
   final String selectedDate;
@@ -15,6 +17,39 @@ class reservsummary extends StatefulWidget {
 }
 
 class _reservsummaryState extends State<reservsummary> {
+  late String selectedDate = '';
+  late String selectedTime = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchReservationData();
+  }
+
+  void fetchReservationData() async {
+    try {
+      final QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance.collection('reservations').get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        final DocumentSnapshot documentSnapshot = querySnapshot.docs.first;
+
+        setState(() {
+          // Convert Firestore Timestamps to DateTime objects
+          selectedDate = (documentSnapshot['selectedDate'] as Timestamp)
+              .toDate()
+              .toString();
+
+          selectedTime = documentSnapshot['selectedTime'].toString();
+        });
+      } else {
+        print('No documents found in the "reservations" collection.');
+      }
+    } catch (e) {
+      print('Error fetching reservation data: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String>? selectedTables =
@@ -107,7 +142,7 @@ class _reservsummaryState extends State<reservsummary> {
                                             Spacer(),
                                             //selected date
                                             Text(
-                                              "${widget.selectedDate} ",
+                                              "${DateFormat('yyyy-MM-dd').format(DateTime.parse(selectedDate))}",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
@@ -140,7 +175,7 @@ class _reservsummaryState extends State<reservsummary> {
                                             ),
                                             Spacer(),
                                             Text(
-                                              "${widget.selectedTime} ",
+                                              "${selectedTime} ",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
