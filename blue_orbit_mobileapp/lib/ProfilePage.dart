@@ -11,8 +11,12 @@ class profilePage extends StatefulWidget {
 }
 
 class _profilePageState extends State<profilePage> {
-  String userName = "John Doe"; // Initial user name
+  String userName = "Mary Anne"; // Initial user name
   String contactNumber = "1234567890"; // Initial contact number
+  String email = "example@example.com"; // Initial email
+  String password = "examplepassword"; // Initial password
+
+  bool isEditing = false; // Flag to track if profile is being edited
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,7 @@ class _profilePageState extends State<profilePage> {
                 SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                    // Handle profile picture change
+                    _changeProfilePicture();
                   },
                   child: Stack(
                     children: [
@@ -59,58 +63,11 @@ class _profilePageState extends State<profilePage> {
                   content: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 10),
-                      TextFormField(
-                        initialValue: userName,
-                        onChanged: (value) {
-                          setState(() {
-                            userName = value; // Update user name
-                          });
-                        },
-                        decoration: InputDecoration(
-                          hintText: "Enter new user name",
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text("Change Password"),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter current password",
-                        ),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter new password",
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                _buildInfoBox(
-                  title: "Contact Info",
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 10),
-                      TextFormField(
-                        initialValue: contactNumber,
-                        onChanged: (value) {
-                          setState(() {
-                            contactNumber = value; // Update contact number
-                          });
-                        },
-                        decoration: InputDecoration(
-                          hintText: "Enter new contact number",
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text("Email"),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter email",
-                        ),
-                      ),
+                      _buildInfoField("Name", userName),
+                      if (isEditing) _buildEditField("New User Name", initialValue: userName, onChanged: (value) => userName = value),
+                      if (isEditing) _buildEditField("New Password", initialValue: password, obscureText: true, onChanged: (value) => password = value),
+                      if (isEditing) _buildEditField("New Contact Number", initialValue: contactNumber, onChanged: (value) => contactNumber = value),
+                      if (isEditing) _buildEditField("New Email", initialValue: email, onChanged: (value) => email = value),
                     ],
                   ),
                 ),
@@ -120,15 +77,33 @@ class _profilePageState extends State<profilePage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        // Handle edit profile logic
+                        setState(() {
+                          isEditing = true;
+                        });
                       },
-                      child: Text("Edit Profile"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff140A4D),
+                      ),
+                      child: Text(
+                        "Edit Profile",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        // Handle save changes logic
-                      },
-                      child: Text("Save Changes"),
+                      onPressed: _saveChanges,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff140A4D),
+                      ),
+                      child: Text(
+                        "Save Changes",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -180,5 +155,57 @@ class _profilePageState extends State<profilePage> {
         ],
       ),
     );
+  }
+
+  Widget _buildInfoField(String label, String value) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(width: 10),
+          Text(
+            value,
+            style: TextStyle(
+              fontStyle: value.isNotEmpty ? FontStyle.normal : FontStyle.italic,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildEditField(String label, {required String initialValue, required ValueChanged<String> onChanged, bool obscureText = false}) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: TextFormField(
+        initialValue: initialValue,
+        onChanged: onChanged,
+        decoration: InputDecoration(
+          labelText: label,
+          suffixIcon: obscureText ? IconButton(
+            icon: Icon(Icons.visibility),
+            onPressed: () {},
+          ) : null,
+        ),
+        obscureText: obscureText,
+      ),
+    );
+  }
+
+  void _changeProfilePicture() {
+    // Logic to handle profile picture change
+  }
+
+  void _saveChanges() {
+    // Logic to save changes to the backend
+    setState(() {
+      isEditing = false; // Exit editing mode after saving changes
+    });
   }
 }
