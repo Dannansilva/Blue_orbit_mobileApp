@@ -223,6 +223,10 @@ class _reservetableState extends State<reservetable> {
                               const EdgeInsets.only(right: 25.0, bottom: 25),
                           child: ElevatedButton(
                             onPressed: () {
+                              String formattedDate =
+                                  DateFormat('yyyy-MM-dd').format(selectedDate);
+                              String selectedTime =
+                                  _isLunchSelected ? 'Lunch' : 'Dinner';
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
