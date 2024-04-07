@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, sort_child_properties_last, avoid_unnecessary_containers, annotate_overrides, unused_element
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, sort_child_properties_last, avoid_unnecessary_containers, annotate_overrides, unused_element, avoid_print, use_build_context_synchronously
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:blue_orbit_mobileapp/noofguest.dart';
@@ -40,11 +40,26 @@ class _reservetableState extends State<reservetable> {
   }
 
   void _saveReservation() async {
-    //save reservation to database
-    await FirebaseFirestore.instance.collection('reservations').add({
-      'selectedDate': selectedDate,
-      'selectedTime': _isLunchSelected ? 'Lunch' : 'Dinner'
-    });
+    try {
+      // Save reservation to Firestore
+      await FirebaseFirestore.instance.collection('reservations').add({
+        'selectedDate': selectedDate,
+        'selectedTime': _isLunchSelected ? 'Lunch' : 'Dinner',
+      });
+      if (mounted) {
+        // Navigate to the next screen after saving the reservation
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => noguest(),
+          ),
+        );
+      }
+    } catch (e) {
+      // Handle errors here
+      print('Error saving reservation: $e');
+      return;
+    }
   }
 
   @override
@@ -222,18 +237,9 @@ class _reservetableState extends State<reservetable> {
                           padding:
                               const EdgeInsets.only(right: 25.0, bottom: 25),
                           child: ElevatedButton(
-                            onPressed: () {
-                              String formattedDate =
-                                  DateFormat('yyyy-MM-dd').format(selectedDate);
-                              String selectedTime =
-                                  _isLunchSelected ? 'Lunch' : 'Dinner';
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => noguest(),
-                                ),
-                              );
-                            },
+                            onPressed:
+                                // Call _saveReservation() to save the reservation data
+                                _saveReservation,
                             child: Text("Confirm"),
                           ),
                         ),

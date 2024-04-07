@@ -1,33 +1,43 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, no_leading_underscores_for_local_identifiers, unused_element, use_build_context_synchronously, avoid_print
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, empty_catches, unused_element, avoid_print, camel_case_types
 
 import 'package:blue_orbit_mobileapp/Components/My_textfeild.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class signup extends StatefulWidget {
+  const signup({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<signup> createState() => _signupState();
 }
 
-class _LoginState extends State<Login> {
+class _signupState extends State<signup> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController name = TextEditingController();
     TextEditingController emai = TextEditingController();
     TextEditingController pass = TextEditingController();
-    Future<void> login() async {
+    TextEditingController conpass = TextEditingController();
+    TextEditingController contact = TextEditingController();
+
+    Future<void> register() async {
       try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: emai.text.trim(), password: pass.text.trim());
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emai.text.trim(), password: pass.text.trim());
+        String userId = userCredential.user!.uid;
+        await FirebaseFirestore.instance.collection("users").doc(userId).set({
+          'name': name.text.trim(),
+          'email': emai.text.trim(),
+          'contact': contact.text.trim(),
+        });
+        if (mounted) {
+          Navigator.pushNamed(context, '/login');
+        }
       } catch (e) {
-        print(e);
+        print("Error:${e.toString()}");
         return;
-      }
-      if (mounted) {
-        Navigator.pushNamed(context, '/reserv');
       }
     }
 
@@ -59,7 +69,7 @@ class _LoginState extends State<Login> {
                           ..style = PaintingStyle.stroke),
                   ),
                   Text(
-                    "Log in to continue!",
+                    "Sign up to have the best dining experience!",
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w900,
@@ -72,22 +82,72 @@ class _LoginState extends State<Login> {
                   ),
                   //email text box
                   SizedBox(
-                    height: 25,
+                    height: 20,
                   ),
                   Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 25.0),
                       child: Text(
-                        "EMAIL",
+                        "Name",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   MyTextField(
-                      hintText: "email address",
-                      obscureText: false,
-                      controller: emai),
+                      hintText: "Name", obscureText: false, controller: name),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //password text box
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Text(
+                        "Emali",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  MyTextField(
+                      hintText: "Email", obscureText: false, controller: emai),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //password text box
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Text(
+                        "Password",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  MyTextField(
+                      hintText: "Password",
+                      obscureText: true,
+                      controller: pass),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  // Confirm password text box
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Text(
+                        "Confirm Password",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  MyTextField(
+                      hintText: "Confirm Password",
+                      obscureText: true,
+                      controller: conpass),
                   SizedBox(
                     height: 25,
                   ),
@@ -97,18 +157,19 @@ class _LoginState extends State<Login> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 25.0),
                       child: Text(
-                        "PASSWORD",
+                        "Contact number",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   MyTextField(
-                      hintText: "password",
-                      obscureText: true,
-                      controller: pass),
+                      hintText: "Contact number",
+                      obscureText: false,
+                      controller: contact),
+
                   Spacer(),
                   ElevatedButton(
-                    onPressed: login,
+                    onPressed: register,
                     style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Color(0xff140A4D)),
@@ -116,7 +177,7 @@ class _LoginState extends State<Login> {
                           MaterialStateProperty.all<Size>(Size(300, 70)),
                     ),
                     child: Text(
-                      "Log in ",
+                      "Register ",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -133,9 +194,7 @@ class _LoginState extends State<Login> {
                       children: [
                         Text("Don’t have an account!"),
                         TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/signup');
-                            },
+                            onPressed: () {},
                             child: Text(
                               "Sign up",
                               style: TextStyle(
@@ -158,5 +217,6 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+    ;
   }
 }
