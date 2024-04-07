@@ -6,6 +6,7 @@ import 'package:blue_orbit_mobileapp/CuisinesPage.dart';
 import 'package:blue_orbit_mobileapp/IndianFD.dart';
 import 'package:blue_orbit_mobileapp/ItalianFD.dart';
 import 'package:blue_orbit_mobileapp/JapaneseFD.dart';
+import 'package:blue_orbit_mobileapp/ProfilePage.dart';
 import 'package:blue_orbit_mobileapp/Reserve_table.dart';
 import 'package:blue_orbit_mobileapp/Special_offers.dart';
 import 'package:blue_orbit_mobileapp/SrilankanFD.dart';
@@ -30,10 +31,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
- functions
-      home: tableNO(selectedCount: 2),
-
-    
+      home: profilePage(),
       routes: generateRoutes(),
     );
   }
@@ -58,10 +56,7 @@ class MyApp extends StatelessWidget {
       // '/tabelno': (context) => tableNO(
       //       selectedCount: selectedCount,
       //     ),
-      '/reservsum': (context) => const reservsummary(
-            selectedDate: '',
-            selectedTime: '',
-          ),
+      '/reservsum': (context) => const reservsummary( selectedDate: '',selectedTime: '',),
     };
   }
 }
