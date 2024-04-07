@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, sort_child_properties_last, avoid_unnecessary_containers, annotate_overrides, unused_import, unnecessary_import
+
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:blue_orbit_mobileapp/noofguest.dart';
 import 'package:blue_orbit_mobileapp/reservationsummary.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -36,6 +37,29 @@ class _reservetableState extends State<reservetable> {
   void initState() {
     super.initState();
     _isLunchSelected = false;
+  }
+
+  void _saveReservation() async {
+    try {
+      // Save reservation to Firestore
+      await FirebaseFirestore.instance.collection('reservations').add({
+        'selectedDate': selectedDate,
+        'selectedTime': _isLunchSelected ? 'Lunch' : 'Dinner',
+      });
+      if (mounted) {
+        // Navigate to the next screen after saving the reservation
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => noguest(),
+          ),
+        );
+      }
+    } catch (e) {
+      // Handle errors here
+      print('Error saving reservation: $e');
+      return;
+    }
   }
 
   @override
@@ -213,14 +237,9 @@ class _reservetableState extends State<reservetable> {
                           padding:
                               const EdgeInsets.only(right: 25.0, bottom: 25),
                           child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => noguest(),
-                                ),
-                              );
-                            },
+                            onPressed:
+                                // Call _saveReservation() to save the reservation data
+                                _saveReservation,
                             child: Text("Confirm"),
                           ),
                         ),
