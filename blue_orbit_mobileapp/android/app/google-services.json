@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "29747608553",
+    "project_id": "blueorbit-a1f4e",
+    "storage_bucket": "blueorbit-a1f4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29747608553:android:e307632ceb9b957cc96978",
+        "android_client_info": {
+          "package_name": "com.example.blue_orbit_mobileapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDokoqV-Mymngn_vvunUJbb4UAYhKRfg4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

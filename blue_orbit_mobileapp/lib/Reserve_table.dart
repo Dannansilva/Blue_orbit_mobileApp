@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, sort_child_properties_last, avoid_unnecessary_containers, annotate_overrides
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, sort_child_properties_last, avoid_unnecessary_containers, annotate_overrides, unused_element
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:blue_orbit_mobileapp/noofguest.dart';
 import 'package:blue_orbit_mobileapp/reservationsummary.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -36,6 +37,14 @@ class _reservetableState extends State<reservetable> {
   void initState() {
     super.initState();
     _isLunchSelected = false;
+  }
+
+  void _saveReservation() async {
+    //save reservation to database
+    await FirebaseFirestore.instance.collection('reservations').add({
+      'selectedDate': selectedDate,
+      'selectedTime': _isLunchSelected ? 'Lunch' : 'Dinner'
+    });
   }
 
   @override
