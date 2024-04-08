@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 
