@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData && snapshot.data != null) {
-              return reservetable();
+              return profilePage();
             } else {
               return Login();
             }
