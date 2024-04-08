@@ -131,8 +131,8 @@ class _noguestState extends State<noguest> {
                   children: [
                     Spacer(),
                     Padding(
-                      padding: const EdgeInsets.only(right: 25.0, bottom: 25),
-                      child: ElevatedButton(
+                        padding: const EdgeInsets.only(right: 25.0, bottom: 25),
+                        child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -143,10 +143,7 @@ class _noguestState extends State<noguest> {
                             );
                           },
                           child: Text("Next"),
-                        )
-
-
-                    )
+                        ))
                   ],
                 ),
                 //navbar
@@ -156,13 +153,13 @@ class _noguestState extends State<noguest> {
                       Icons.menu,
                       Icons.local_offer,
                       Icons.book_online,
-                      Icons.info,
+                      Icons.person,
                     ],
                     onPressed: [
                       () => Navigator.pushNamed(context, '/intro'),
                       () => Navigator.pushNamed(context, '/offer'),
                       () => Navigator.pushNamed(context, '/reserv'),
-                      () => Navigator.pushNamed(context, '/guest'),
+                      () => Navigator.pushNamed(context, '/profile'),
                     ],
                     currentIndex: 2,
                   ),

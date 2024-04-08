@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData && snapshot.data != null) {
-              return ReviewPage();
+              return reservetable();
             } else {
               return Login();
             }
@@ -72,8 +72,9 @@ class MyApp extends StatelessWidget {
       '/indian': (context) => const indianFD(),
       '/noguest': (context) => const noguest(),
       '/reserv': (context) => const reservetable(),
-      '/signup': (context) => const signup(),
+      '/signup': (context) => const Signup(),
       '/login': (context) => const Login(),
+      '/profile': (context) => const profilePage(),
       // '/tabelno': (context) => tableNO(
       //       selectedCount: selectedCount,
       //     ),
