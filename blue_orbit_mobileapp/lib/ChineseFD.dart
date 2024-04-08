@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
 
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
 import 'package:flutter/material.dart';
@@ -121,13 +121,13 @@ class _chineseFDState extends State<chineseFD> {
                       Icons.menu,
                       Icons.local_offer,
                       Icons.book_online,
-                      Icons.info,
+                      Icons.person,
                     ],
                     onPressed: [
                       () => Navigator.pushNamed(context, '/intro'),
                       () => Navigator.pushNamed(context, '/offer'),
                       () => Navigator.pushNamed(context, '/reserv'),
-                      () => Navigator.pushNamed(context, '/guest'),
+                      () => Navigator.pushNamed(context, '/profile'),
                     ],
                     currentIndex: 0,
                   ),
