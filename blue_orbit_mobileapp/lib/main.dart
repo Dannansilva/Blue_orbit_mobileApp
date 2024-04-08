@@ -46,11 +46,10 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder<User?>(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
-            if (snapshot.hasData && snapshot.data != null) {  
-              return homePage();
-              
+            if (snapshot.hasData && snapshot.data != null) {
+              return HomePage();
             } else {
-              return homePage();
+              return HomePage();
             }
           }),
       routes: generateRoutes(),

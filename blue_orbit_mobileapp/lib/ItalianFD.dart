@@ -137,10 +137,11 @@ class _italianFDState extends State<italianFD> {
           ),
           // image
           Center(
-              child: Padding(
-            padding: const EdgeInsets.only(bottom: 120.0),
-            child: Image.asset("assets/italian.png"),
-          )),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 120.0),
+              child: Image.asset("assets/italian.png"),
+            ),
+          ),
         ],
       ),
     );
