@@ -3,6 +3,7 @@
 import 'package:blue_orbit_mobileapp/ArabianFD.dart';
 import 'package:blue_orbit_mobileapp/ChineseFD.dart';
 import 'package:blue_orbit_mobileapp/CuisinesPage.dart';
+import 'package:blue_orbit_mobileapp/Home.dart';
 import 'package:blue_orbit_mobileapp/IndianFD.dart';
 import 'package:blue_orbit_mobileapp/ItalianFD.dart';
 import 'package:blue_orbit_mobileapp/JapaneseFD.dart';
@@ -45,10 +46,11 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder<User?>(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
-            if (snapshot.hasData && snapshot.data != null) {
-              return profilePage();
+            if (snapshot.hasData && snapshot.data != null) {  
+              return homePage();
+              
             } else {
-              return Login();
+              return homePage();
             }
           }),
       routes: generateRoutes(),
