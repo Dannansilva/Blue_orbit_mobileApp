@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
       '/noguest': (context) => const noguest(),
       '/reserv': (context) {
         if (Guest.cameAsGuest) {
-          return Signup();
+          return Guest();
         } else
           return reservetable();
       },
