@@ -28,7 +28,7 @@ class _indianFDState extends State<indianFD> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/chinese');
+                Navigator.pushNamed(context, '/cuisines');
               },
               icon: const Icon(Icons.arrow_back_outlined),
             ),

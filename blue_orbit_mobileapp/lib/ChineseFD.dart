@@ -28,7 +28,7 @@ class _chineseFDState extends State<chineseFD> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/arabian');
+                Navigator.pushNamed(context, '/cuisines');
               },
               icon: const Icon(Icons.arrow_back_outlined),
             ),
