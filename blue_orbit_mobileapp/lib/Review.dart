@@ -165,7 +165,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     () => Navigator.pushNamed(context, '/reserv'),
                     () => Navigator.pushNamed(context, '/profile'),
                   ],
-                  currentIndex: 2,
+                  currentIndex: -1,
                 ),
               ),
             ],
