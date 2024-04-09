@@ -41,6 +41,10 @@ class _reservsummaryState extends State<reservsummary> {
               .toString();
 
           selectedTime = documentSnapshot['selectedTime'].toString();
+
+          // Assuming selectedDate is in 'yyyy-MM-dd' format, you may need to adjust this format accordingly
+          selectedDate =
+              DateFormat('yyyy-MM-dd').format(DateTime.parse(selectedDate));
         });
       } else {
         print('No documents found in the "reservations" collection.');
@@ -142,7 +146,7 @@ class _reservsummaryState extends State<reservsummary> {
                                             Spacer(),
                                             //selected date
                                             Text(
-                                              "${DateFormat('yyyy-MM-dd').format(DateTime.parse(selectedDate))}",
+                                              "${selectedDate}",
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
@@ -187,39 +191,6 @@ class _reservsummaryState extends State<reservsummary> {
                                       ),
                                     ),
                                   ),
-                                  //guest row
-                                  // Padding(
-                                  //   padding: const EdgeInsets.only(top: 20.0),
-                                  //   child: Center(
-                                  //     child: Padding(
-                                  //       padding: const EdgeInsets.only(
-                                  //           left: 40.0, right: 30),
-                                  //       child: Row(
-                                  //         mainAxisAlignment:
-                                  //             MainAxisAlignment.center,
-                                  //         children: [
-                                  //           Text(
-                                  //             "Guests : ",
-                                  //             style: TextStyle(
-                                  //               fontSize: 16,
-                                  //               fontWeight: FontWeight.bold,
-                                  //               color: Colors.white,
-                                  //             ),
-                                  //           ),
-                                  //           Spacer(),
-                                  //           Text(
-                                  //             "10 pax ",
-                                  //             style: TextStyle(
-                                  //               fontSize: 16,
-                                  //               fontWeight: FontWeight.bold,
-                                  //               color: Colors.white,
-                                  //             ),
-                                  //           )
-                                  //         ],
-                                  //       ),
-                                  //     ),
-                                  //   ),
-                                  // ),
                                   //table number
 
                                   Padding(
@@ -276,7 +247,9 @@ class _reservsummaryState extends State<reservsummary> {
                 Padding(
                   padding: const EdgeInsets.only(right: 35.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/Homepage');
+                    },
                     child: Text("Confirm "),
                   ),
                 )

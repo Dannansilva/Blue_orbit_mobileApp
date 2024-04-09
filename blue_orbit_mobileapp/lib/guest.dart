@@ -87,7 +87,7 @@ class Guest extends StatelessWidget {
                 //guest button
                 ElevatedButton(
                   onPressed: () {
-                    // Navigator.pushNamed(context, '/intro2');
+                    Navigator.pushNamed(context, '/Homepage');
                   },
                   style: ButtonStyle(
                     backgroundColor:
@@ -116,22 +116,52 @@ class Guest extends StatelessWidget {
                   height: 15,
                 ),
                 //signup button
-                ElevatedButton(
-                  onPressed: () {
-                    // Navigator.pushNamed(context, '/intro2');
-                  },
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Color(0xff140A4D)),
-                    minimumSize: MaterialStateProperty.all<Size>(Size(300, 70)),
-                  ),
-                  child: Text(
-                    "Sign up",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/signup');
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color(0xff140A4D)),
+                          minimumSize:
+                              MaterialStateProperty.all<Size>(Size(150, 70)),
+                        ),
+                        child: Text(
+                          "Sign up",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    // login button
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login');
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color(0xff140A4D)),
+                          minimumSize:
+                              MaterialStateProperty.all<Size>(Size(150, 70)),
+                        ),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

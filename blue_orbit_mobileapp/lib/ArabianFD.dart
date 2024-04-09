@@ -28,30 +28,30 @@ class _arabianFDState extends State<arabianFD> {
             ),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/japanese');
+                Navigator.pushNamed(context, '/cuisines');
               },
               icon: const Icon(Icons.arrow_back_outlined),
             ),
           ),
         ),
         //second icon button
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.white,
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/chinese');
-                },
-                icon: const Icon(Icons.arrow_forward_outlined),
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: const EdgeInsets.all(5.0),
+        //     child: Container(
+        //       decoration: BoxDecoration(
+        //         borderRadius: BorderRadius.circular(50),
+        //         color: Colors.white,
+        //       ),
+        //       child: IconButton(
+        //         onPressed: () {
+        //           Navigator.pushNamed(context, '/chinese');
+        //         },
+        //         icon: const Icon(Icons.arrow_forward_outlined),
+        //       ),
+        //     ),
+        //   ),
+        // ],
       ),
       extendBodyBehindAppBar: true,
       body: Stack(
