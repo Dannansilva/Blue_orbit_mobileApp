@@ -76,6 +76,9 @@ class MyApp extends StatelessWidget {
       '/signup': (context) => const Signup(),
       '/login': (context) => const Login(),
       '/profile': (context) => const profilePage(),
+      '/cuisines': (context) => const cuisinesPage(),
+      '/Homepage': (context) => const HomePage(),
+      '/reviewpage': (context) => const ReviewPage(),
       // '/tabelno': (context) => tableNO(
       //       selectedCount: selectedCount,
       //     ),

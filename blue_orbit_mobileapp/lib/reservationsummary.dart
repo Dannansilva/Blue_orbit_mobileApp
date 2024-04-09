@@ -293,7 +293,7 @@ class _reservsummaryState extends State<reservsummary> {
                   Icons.info,
                 ],
                 onPressed: [
-                  () => Navigator.pushNamed(context, '/intro'),
+                  () => Navigator.pushNamed(context, '/Homepage'),
                   () => Navigator.pushNamed(context, '/offer'),
                   () => Navigator.pushNamed(context, '/reserv'),
                   () => Navigator.pushNamed(context, '/guest'),

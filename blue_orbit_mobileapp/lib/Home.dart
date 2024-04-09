@@ -1,7 +1,9 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:blue_orbit_mobileapp/Components/Bottom_navbar.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -61,9 +63,14 @@ class HomePage extends StatelessWidget {
                     children: [
                       Image.asset('assets/logo.png'),
                       Spacer(),
-                      CircleAvatar(
-                        radius: 35,
-                        backgroundImage: AssetImage('assets/person2.png'),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/profile');
+                        },
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage('assets/person2.png'),
+                        ),
                       ),
                     ],
                   ),
@@ -144,32 +151,42 @@ class HomePage extends StatelessWidget {
                       child: Row(
                         children: [
                           // first one
-                          Container(
-                            height: 35,
-                            width: screenWidth / 3,
-                            decoration: BoxDecoration(
-                              color: Color(0xff06294F),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "More Offers",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 15),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/offer');
+                            },
+                            child: Container(
+                              height: 35,
+                              width: screenWidth / 3,
+                              decoration: BoxDecoration(
+                                color: Color(0xff06294F),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "More Offers",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),
                               ),
                             ),
                           ),
                           SizedBox(width: 15),
                           // second one
-                          Container(
-                            height: 35,
-                            width: screenWidth / 3,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text("Cuisines"),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/cuisines');
+                            },
+                            child: Container(
+                              height: 35,
+                              width: screenWidth / 3,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text("Cuisines"),
+                              ),
                             ),
                           ),
                           SizedBox(width: 15),
@@ -191,15 +208,20 @@ class HomePage extends StatelessWidget {
                           ),
                           SizedBox(width: 15),
                           // fourth one
-                          Container(
-                            height: 35,
-                            width: screenWidth / 3,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text("Review"),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/reviewpage');
+                            },
+                            child: Container(
+                              height: 35,
+                              width: screenWidth / 3,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text("Review"),
+                              ),
                             ),
                           ),
                         ],
@@ -283,7 +305,7 @@ class HomePage extends StatelessWidget {
                   Icons.person,
                 ],
                 onPressed: [
-                  () => Navigator.pushNamed(context, '/intro'),
+                  () => Navigator.pushNamed(context, '/Homepage'),
                   () => Navigator.pushNamed(context, '/offer'),
                   () => Navigator.pushNamed(context, '/reserv'),
                   () => Navigator.pushNamed(context, '/profile'),
