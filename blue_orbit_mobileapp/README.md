@@ -18,3 +18,9 @@ hvh
 bbk
 jbjnk
 bjkblk
+hdh
+jdd
+dbdd
+dhd
+sjjhb
+ndhs
