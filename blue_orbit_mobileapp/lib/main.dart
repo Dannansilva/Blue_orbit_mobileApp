@@ -1,5 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
+import 'dart:math';
+
 import 'package:blue_orbit_mobileapp/ArabianFD.dart';
 import 'package:blue_orbit_mobileapp/ChineseFD.dart';
 import 'package:blue_orbit_mobileapp/CuisinesPage.dart';
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData && snapshot.data != null) {
-              return Guest();
+              return intro();
             } else {
               return HomePage();
             }
@@ -72,10 +74,21 @@ class MyApp extends StatelessWidget {
       '/chinese': (context) => const chineseFD(),
       '/indian': (context) => const indianFD(),
       '/noguest': (context) => const noguest(),
-      '/reserv': (context) => const reservetable(),
+      '/reserv': (context) {
+        if (Guest.cameAsGuest) {
+          return Signup();
+        } else
+          return reservetable();
+      },
       '/signup': (context) => const Signup(),
       '/login': (context) => const Login(),
-      '/profile': (context) => const profilePage(),
+      '/profile': (context) {
+        if (Guest.cameAsGuest) {
+          return HomePage();
+        } else {
+          return profilePage();
+        }
+      },
       '/cuisines': (context) => const cuisinesPage(),
       '/Homepage': (context) => const HomePage(),
       '/reviewpage': (context) => const ReviewPage(),

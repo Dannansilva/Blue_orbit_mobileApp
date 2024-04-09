@@ -5,9 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Guest extends StatelessWidget {
   const Guest({super.key});
-
+ static bool cameAsGuest = false;
   @override
   Widget build(BuildContext context) {
+     
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -87,6 +88,7 @@ class Guest extends StatelessWidget {
                 //guest button
                 ElevatedButton(
                   onPressed: () {
+                    cameAsGuest = true;
                     Navigator.pushNamed(context, '/Homepage');
                   },
                   style: ButtonStyle(
