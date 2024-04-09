@@ -160,7 +160,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     Icons.person,
                   ],
                   onPressed: [
-                    () => Navigator.pushNamed(context, '/intro'),
+                    () => Navigator.pushNamed(context, '/Homepage'),
                     () => Navigator.pushNamed(context, '/offer'),
                     () => Navigator.pushNamed(context, '/reserv'),
                     () => Navigator.pushNamed(context, '/profile'),

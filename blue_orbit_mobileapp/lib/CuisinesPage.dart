@@ -125,7 +125,7 @@ class cuisinesPage extends StatelessWidget {
                           Icons.person,
                         ],
                         onPressed: [
-                          () => Navigator.pushNamed(context, '/intro'),
+                          () => Navigator.pushNamed(context, '/Homepage'),
                           () => Navigator.pushNamed(context, '/offer'),
                           () => Navigator.pushNamed(context, '/reserv'),
                           () => Navigator.pushNamed(context, '/profile'),
