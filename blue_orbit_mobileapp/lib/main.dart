@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:blue_orbit_mobileapp/Aboutus.dart';
 import 'package:blue_orbit_mobileapp/ArabianFD.dart';
 import 'package:blue_orbit_mobileapp/ChineseFD.dart';
 import 'package:blue_orbit_mobileapp/CuisinesPage.dart';
@@ -99,6 +100,7 @@ class MyApp extends StatelessWidget {
             selectedDate: '',
             selectedTime: '',
           ),
+      '/aboutus': (context) => const aboutus(),
     };
   }
 }

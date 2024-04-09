@@ -191,18 +191,23 @@ class HomePage extends StatelessWidget {
                           ),
                           SizedBox(width: 15),
                           // third one
-                          Container(
-                            height: 35,
-                            width: screenWidth / 3,
-                            decoration: BoxDecoration(
-                              color: Color(0xff06294F),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "About us",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 15),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/aboutus');
+                            },
+                            child: Container(
+                              height: 35,
+                              width: screenWidth / 3,
+                              decoration: BoxDecoration(
+                                color: Color(0xff06294F),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "About us",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),
                               ),
                             ),
                           ),
